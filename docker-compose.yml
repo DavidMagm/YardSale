@@ -1,0 +1,13 @@
+version: '3.8'
+
+services: 
+    postgres:
+        image: postgres
+        environment:
+            - POSTGRES_USER=david
+            - POSTGRES_PASSWORD=root123
+            - POSTGRES_DB=yardsale
+        ports:
+            - 5432:5432
+        volumes:
+            - ./data:/var/lib/postgresql/data
