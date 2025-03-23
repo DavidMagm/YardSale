@@ -1,5 +1,6 @@
 const {Sequelize} = require('sequelize')
-const {config} = require('../config')
+const initModels = require('../../models')
+const {config} = require('../../config')
 
 const {dbName, dbPassword, dbUser, dbHost, dbPort, dbDialect} = config
 
@@ -8,5 +9,7 @@ const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
     port: dbPort,
     dialect: dbDialect
 })
+
+initModels(sequelize)
 
 module.exports = {sequelize}

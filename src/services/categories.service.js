@@ -1,14 +1,19 @@
+const {models} = require('../database');
+
 class CategoriesService {
-    async createCategory() {
-        return 'Categories Page';
+    async createCategory(category) {
+        const newCategory = await models.Category.create(category);
+        return newCategory;
     }
 
     async getAll() {
-        return 'Hello World!';
+        const categories = await models.Category.findAll();
+        return categories;
     }
 
-    async getOne() {
-        return 'Categories Page';
+    async getOne(id) {
+        const category = await models.Category.findByPk(id);
+        return category;
     }
 }
 
