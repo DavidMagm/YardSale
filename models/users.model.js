@@ -1,16 +1,21 @@
-const {Model, DataTypes} = require('sequelize')
+const {Model, DataTypes} = require('sequelize');
 
-const CategoriesModel = {
+const UsersModel = {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true
     },
-    name: {
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        undefined
+    },
+    password: {
         type: DataTypes.STRING,
         allowNull: false
     },
-    image: {
+    role: {
         type: DataTypes.STRING,
         allowNull: false
     },
@@ -19,24 +24,25 @@ const CategoriesModel = {
         allowNull: false,
         field: 'created_at',
         defaultValue: DataTypes.NOW
-    }
+    },
 }
 
-class Categories extends Model {
+class Users extends Model {
     static associate(models) {
-        this.hasMany(models.Products, {
-            foreignKey: 'categoryId',
-            as: 'products'
+        // define association here
+        this.hasOne(models.Customers, {
+            foreignKey: 'userId',
+            as: 'customer'
         })
     }
     static config(sequelize) {
         return {
             sequelize,
-            modelName: 'Categories',
-            tableName: 'categories',
+            modelName: 'Users',
+            tableName: 'users',
             timestamps: true
         }
     }
 }
 
-module.exports = {Categories, CategoriesModel}
+module.exports = {Users, UsersModel}

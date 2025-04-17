@@ -1,6 +1,6 @@
 const {Model, DataTypes} = require('sequelize')
 
-const ProductsModel = {
+const CustomersModel = {
     id: {
         type: DataTypes.INTEGER,
         primaryKey: true,
@@ -10,20 +10,21 @@ const ProductsModel = {
         type: DataTypes.STRING,
         allowNull: false
     },
-    price: {
-        type: DataTypes.DECIMAL,
-        allowNull: false
+    lastName: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        field: 'last_name'
     },
-    image: {
+    phone : {
         type: DataTypes.STRING,
         allowNull: false
     },
-    categoryId: {
+    userId: {
         type: DataTypes.INTEGER,
         allowNull: false,
-        field: 'category_id',
+        field: 'user_id',
         references: {
-            model: 'Categories',
+            model: 'Users',
             key: 'id'
         }
     },
@@ -32,24 +33,24 @@ const ProductsModel = {
         allowNull: false,
         field: 'created_at',
         defaultValue: DataTypes.NOW
-    }
+    },
 }
 
-class Products extends Model {
+class Customers extends Model {
     static associate(models) {
-        this.belongsTo(models.Categories, {
-            foreignKey: 'categoryId',
-            as: 'category'
+        this.belongsTo(models.Users, {
+            foreignKey: 'userId',
+            as: 'user'
         })
     }
     static config(sequelize) {
         return {
             sequelize,
-            modelName: 'Products',
-            tableName: 'products',
+            modelName: 'Customers',
+            tableName: 'customers',
             timestamps: true
         }
     }
 }
 
-module.exports = {Products, ProductsModel}
+module.exports = {Customers, CustomersModel}
