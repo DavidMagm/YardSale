@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 const config = {
+    env: process.env.NODE_ENV || 'development',
     dbName: process.env.DB_NAME,
     dbPassword: process.env.DB_PASSWORD,
     dbUser: process.env.DB_USER,

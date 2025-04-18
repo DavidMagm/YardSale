@@ -1,20 +1,18 @@
 const {config} = require('../config')
 
 module.exports = {
-    develoment: {
-        dbName: config.dbName,
-        dbUser: config.dbUser,
-        dbPassword: config.dbPassword,
-        dbHost: config.dbHost,
-        dbPort: config.dbPort,
-        dbDialect: config.dbDialect
+    development: {
+        username: config.dbUser,
+        database: config.dbName,
+        password: config.dbPassword,
+        host: config.dbHost,
+        dialect: 'postgres'
     },
     production: {
-        dbName: config.dbName,
-        dbUser: config.dbUser,
-        dbPassword: config.dbPassword,
-        dbHost: config.dbHost,
-        dbPort: config.dbPort,
-        dbDialect: config.dbDialect 
+        username: config.dbUser,
+        database: config.dbName,
+        password: config.dbPassword,
+        host: config.dbHost,
+        dialect: 'postgres'
     }
 }
