@@ -6,12 +6,12 @@ class UsersService {
   }
 
   async createUser(user) {
-    const newUser = await models.User.create(user);
+    const newUser = await models.Users.create(user);
     return newUser;
   }
 
   async getAll() {
-    const users = await models.User.findAll();
+    const users = await models.Users.findAll();
     return users;
   }
 

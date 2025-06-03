@@ -6,7 +6,7 @@ const initRouter = require('./routes/index');
 const {logError, errorHandler, boomErrorHandler, sqlErrorHandler} = require('./middleware/errorHandler')
 app.use(express.json());
 
-const ipList = ['http://localhost:5500', 'http://127.0.0.1:5500'];
+const ipList = ['http://localhost:3000', 'http://127.0.0.1:3000'];
 
 const corsOptions = {
   origin: (origin, callback) => {

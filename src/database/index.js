@@ -12,4 +12,4 @@ const sequelize = new Sequelize(dbName, dbUser, dbPassword, {
 
 initModels(sequelize)
 
-module.exports = {sequelize}
+module.exports = sequelize
